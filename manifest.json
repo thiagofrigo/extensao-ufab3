@@ -1,0 +1,37 @@
+{
+    "manifest_version": 3,
+    "name": "Minha Extensão",
+    "version": "1.0",
+    "description": "Descrição da extensão.",
+    "background": {
+      "service_worker": "background.js"
+    },
+    "permissions": [
+        "declarativeNetRequest",
+        "declarativeNetRequestFeedback",
+        "activeTab",
+        "storage",
+        "webRequest",
+        "scripting"
+        ],
+    "action": {
+    "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+          "matches": ["https://www.investidor.b3.com.br/extrato/movimentacao"],
+          "js": ["content.js"]
+        }
+    ],
+    "host_permissions": ["<all_urls>"],
+    "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  }
+}
+  
